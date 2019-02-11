@@ -46,9 +46,20 @@ module.exports = {
             .then(data => res.send(data))
     },
     markScenarioAsPlayed(req, res) {
+        console.log(req)
         knex('char_to_scen_m2m')
             .insert(req.body)
             .then(res.sendStatus(201))
+    },
+    removePlayed(req, res) {
+        console.log("REQ", req.params)
+        knex('char_to_scen_m2m')
+            .delete()
+            .where({
+                scen_id: req.params.scenarioId,
+                player_id: req.params.playerId
+            })
+            .then(res.sendStatus(204))
     }
 
 }

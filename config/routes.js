@@ -32,6 +32,7 @@ module.exports = (app) => {
     app.get('/characters/:id/scenarios', characters.getScenariosPlayed);
     app.get('/characters/:id/playableScenarios', characters.getAvailableScenarios);
     app.get('/scenariosPlayed', scenarios.scenariosPlayed);
+    app.delete('/scenariosPlayed/:playerId/:scenarioId', scenarios.removePlayed);
 
 
     app.post('/alignments', alignments.createAlignment);
