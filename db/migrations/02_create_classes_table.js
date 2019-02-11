@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('classes', table => {
-        table.increments();
+        table.uuid('id');
         table.string('class').notNullable();
         table.timestamps(true, true);
     })    

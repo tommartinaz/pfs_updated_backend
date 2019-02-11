@@ -4,8 +4,11 @@ module.exports = {
     getRaces: (req, res) => {
         knex('races')
           .select()
-          .then(function (races) {
-            res.send(races);
-          });
+          .then(races => res.json(races))
+    },
+    createRace(req,res) {
+      knex('races')
+        .insert(req.body, '*')
+        .then(race => res.json(race))
     }
 }

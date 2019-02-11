@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('scenarios', table => {
-        table.increments();
+        table.uuid('id');
         table.string('title');
         table.integer('season');
         table.integer('scen_num');

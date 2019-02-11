@@ -23,10 +23,19 @@ module.exports = (app) => {
     app.get('/scenarios/:id', scenarios.getOneScenario);
     app.post('/scenarios', scenarios.addScenario)
     app.post('/scenarios/:id', scenarios.updateScenario);
+    app.delete('/scenarios/:id', scenarios.deleteScenario);
+    app.post('/markPlayed', scenarios.markScenarioAsPlayed);
 
     app.get('/players', players.getAllPlayers);
+    app.get('/players/:id', players.getOnePlayer);
 
     app.get('/characters/:id/scenarios', characters.getScenariosPlayed);
     app.get('/characters/:id/playableScenarios', characters.getAvailableScenarios);
+    app.get('/scenariosPlayed', scenarios.scenariosPlayed);
 
+
+    app.post('/alignments', alignments.createAlignment);
+    app.post('/classes', classes.createClass);
+    app.post('/players', players.createPlayer);
+    app.post('/races', races.createRace);
 }

@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('alignments', table => {
-        table.increments();
+        table.uuid('id');
         table.string('alignment').notNullable();
         table.timestamps(true, true);
     })
