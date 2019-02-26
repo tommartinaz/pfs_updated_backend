@@ -45,14 +45,27 @@ module.exports = {
             .select('char_id', 'scen_id', 'player_id')
             .then(data => res.send(data))
     },
+    // markScenarioAsPlayed(req, res) {
+    //     console.log(req.body);
+    //     knex('char_to_scen_m2m')
+    //         .insert(req.body)
+    //         .then(res.sendStatus(201))
+    // },
     markScenarioAsPlayed(req, res) {
-        console.log(req)
+        const { scen_id, player_id } = req.body;
+        console.log("SESSION DETAILS", scen_id, player_id, req.body)
         knex('char_to_scen_m2m')
-            .insert(req.body)
-            .then(res.sendStatus(201))
+            .del()
+            .where({
+                scen_id: scen_id,
+                player_id: player_id
+            })
+            .then(knex('char_to_scen_m2m')
+                .insert(req.body)
+                .then(res.sendStatus(201))
+            )
     },
     removePlayed(req, res) {
-        console.log("REQ", req.params)
         knex('char_to_scen_m2m')
             .delete()
             .where({
