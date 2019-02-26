@@ -34,9 +34,10 @@ module.exports = (app) => {
     app.get('/scenariosPlayed', scenarios.scenariosPlayed);
     app.delete('/scenariosPlayed/:playerId/:scenarioId', scenarios.removePlayed);
 
-
     app.post('/alignments', alignments.createAlignment);
     app.post('/classes', classes.createClass);
     app.post('/players', players.createPlayer);
     app.post('/races', races.createRace);
+
+    app.post('/login', players.logIn);
 }
