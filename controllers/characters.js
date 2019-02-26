@@ -33,10 +33,14 @@ module.exports = {
             .then(character => res.json(character))
     },
     deleteCharacter: (req, res) => {
-        knex('characters')
+        knex('char_to_scen_m2m')
+        .del()
+        .where('char_id', req.params.id)
+        .then(knex('characters')
           .delete()
           .where('id', req.params.id)
           .then(res.sendStatus(204))
+        );
     },
 
     getOneCharacter: (req, res) => {
