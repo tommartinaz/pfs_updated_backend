@@ -26,7 +26,7 @@ module.exports = {
                 id: uuidv4()},
                 '*'
             )
-            .then(scenario => res.json(scenario))
+            .then(scenario => res.json(scenario[0]))
     },
     updateScenario: (req, res) => {
         knex('scenarios')
