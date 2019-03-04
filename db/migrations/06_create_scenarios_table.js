@@ -4,9 +4,9 @@ exports.up = function(knex, Promise) {
         table.uuid('id');
         table.string('title');
         table.integer('season');
-        table.integer('scen_num');
-        table.integer('low_level');
-        table.integer('high_level');
+        table.integer('scenarioNumber');
+        table.integer('lowLevel');
+        table.integer('highLevel');
         table.text('description');
         table.timestamps(true, true);
     })

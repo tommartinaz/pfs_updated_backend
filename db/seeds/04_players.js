@@ -9,16 +9,16 @@ exports.seed = function(knex, Promise) {
         {
           id: uuidv4(),
           name: 'Tom',
-          "pfs_id": 62911,
-          email: "t.martin49@gmail.com",
-          password: "test123"
+          "pfsId": 62911,
+          email: "a@b.c",
+          password: "a"
         },
         {
           id: uuidv4(),
           name: 'Aaron',
-          "pfs_id": 1751,
-          email: "adgq@gmail.com",
-          password: "test123"
+          "pfsId": 1751,
+          email: "aa@b.c",
+          password: "a"
         },
       ]);
     });

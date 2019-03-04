@@ -5,18 +5,18 @@ module.exports = {
     getAllScenarios: (req, res) => {
         knex('scenarios as s')
             .select()
-            .orderBy(['season', 'scen_num'])
+            .orderBy(['season', 'scenarioNumber'])
             .then(scenarios => {
                 res.json(scenarios)
             })
     },
     
-    getOneScenario: (req, res) => {
-        knex('scenarios as s')
+    getOneScenario(req, res) {
+        knex('scenarios')
             .select()
             .where('id', req.params.id)
-            .then(scenarios => {
-                res.json(scenarios)
+            .then(scenario => {
+                res.json(scenario[0])
             })
     },
     addScenario(req, res) {
@@ -32,7 +32,7 @@ module.exports = {
         knex('scenarios')
             .update(req.body, '*')
             .where('id', req.params.id)
-            .then(scenario => res.json(scenario))
+            .then(scenario => res.json(scenario[0]))
     },
     deleteScenario(req, res) {
         knex('scenarios')
@@ -42,7 +42,7 @@ module.exports = {
     },
     scenariosPlayed(req, res) {
         knex('char_to_scen_m2m')
-            .select('char_id', 'scen_id', 'player_id')
+            .select('characterId', 'scenarioId', 'playerId')
             .then(data => res.send(data))
     },
     // markScenarioAsPlayed(req, res) {
@@ -52,13 +52,13 @@ module.exports = {
     //         .then(res.sendStatus(201))
     // },
     markScenarioAsPlayed(req, res) {
-        const { scen_id, player_id } = req.body;
-        console.log("SESSION DETAILS", scen_id, player_id, req.body)
+        const { scenarioId, playerId } = req.body;
+        console.log("SESSION DETAILS", scenarioId, playerId, req.body)
         knex('char_to_scen_m2m')
             .del()
             .where({
-                scen_id: scen_id,
-                player_id: player_id
+                scenarioId: scenarioId,
+                playerId: playerId
             })
             .then(knex('char_to_scen_m2m')
                 .insert(req.body)
@@ -69,8 +69,8 @@ module.exports = {
         knex('char_to_scen_m2m')
             .delete()
             .where({
-                scen_id: req.params.scenarioId,
-                player_id: req.params.playerId
+                scenarioId: req.params.scenarioId,
+                playerId: req.params.playerId
             })
             .then(res.sendStatus(204))
     }

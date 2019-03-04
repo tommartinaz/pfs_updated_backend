@@ -8,36 +8,36 @@ const players = require('../controllers/players');
 
 module.exports = (app) => {
     app.get('/', index.home);
-    app.get('/characters', characters.getCharacters);
+    app.get('/api/characters', characters.getCharacters);
     // app.get('/characters/details', characters.getDetails);
-    app.get('/characters/:id', characters.getOneCharacter);
-    app.post('/characters', characters.addCharacter);
-    app.post('/characters/:id', characters.editCharacter);
-    app.delete('/characters/:id', characters.deleteCharacter);
+    app.get('/api/characters/:id', characters.getOneCharacter);
+    app.post('/api/characters', characters.addCharacter);
+    app.put('/api/characters/:id', characters.editCharacter);
+    app.delete('/api/characters/:id', characters.deleteCharacter);
 
-    app.get('/alignments', alignments.getAlignments);
-    app.get('/classes', classes.getClasses);
-    app.get('/races', races.getRaces);
+    app.get('/api/alignments', alignments.getAlignments);
+    app.get('/api/classes', classes.getClasses);
+    app.get('/api/races', races.getRaces);
 
-    app.get('/scenarios', scenarios.getAllScenarios);
-    app.get('/scenarios/:id', scenarios.getOneScenario);
-    app.post('/scenarios', scenarios.addScenario)
-    app.post('/scenarios/:id', scenarios.updateScenario);
-    app.delete('/scenarios/:id', scenarios.deleteScenario);
-    app.post('/markPlayed', scenarios.markScenarioAsPlayed);
+    app.get('/api/scenarios', scenarios.getAllScenarios);
+    app.get('/api/scenarios/:id', scenarios.getOneScenario);
+    app.post('/api/scenarios', scenarios.addScenario)
+    app.put('/api/scenarios/:id', scenarios.updateScenario);
+    app.delete('/api/scenarios/:id', scenarios.deleteScenario);
+    app.post('/api/markPlayed', scenarios.markScenarioAsPlayed);
 
-    app.get('/players', players.getAllPlayers);
-    app.get('/players/:id', players.getOnePlayer);
+    app.get('/api/players', players.getAllPlayers);
+    app.get('/api/players/:id', players.getOnePlayer);
 
-    app.get('/characters/:id/scenarios', characters.getScenariosPlayed);
-    app.get('/characters/:id/playableScenarios', characters.getAvailableScenarios);
-    app.get('/scenariosPlayed', scenarios.scenariosPlayed);
-    app.delete('/scenariosPlayed/:playerId/:scenarioId', scenarios.removePlayed);
+    app.get('/api/characters/:id/scenarios', characters.getScenariosPlayed);
+    app.get('/api/characters/:id/playableScenarios', characters.getAvailableScenarios);
+    app.get('/api/scenariosPlayed', scenarios.scenariosPlayed);
+    app.delete('/api/scenariosPlayed/:playerId/:scenarioId', scenarios.removePlayed);
 
-    app.post('/alignments', alignments.createAlignment);
-    app.post('/classes', classes.createClass);
-    app.post('/players', players.createPlayer);
-    app.post('/races', races.createRace);
+    app.post('/api/alignments', alignments.createAlignment);
+    app.post('/api/classes', classes.createClass);
+    app.post('/api/players', players.createPlayer);
+    app.post('/api/races', races.createRace);
 
     app.post('/login', players.logIn);
 }
