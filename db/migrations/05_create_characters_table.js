@@ -4,9 +4,9 @@ exports.up = function(knex, Promise) {
         table.uuid('id');
         table.integer('characterNumber');
         table.string('name').notNullable();
-        table.string('race');
-        table.string('characterClass');
-        table.string('alignment');
+        table.uuid('raceId');
+        table.uuid('classId');
+        table.uuid('alignmentId');
         table.integer('level').defaultTo(1);
         table.uuid('playerId');
         table.timestamps(true, true);
