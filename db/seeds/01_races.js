@@ -8,43 +8,43 @@ exports.seed = function(knex, Promise) {
       return knex('races').insert([
         {
           "id": uuidv4(),
-          "race": "Aasimar"
+          "name": "Aasimar"
         },
         {
           "id": uuidv4(),
-          "race": "Dwarf"
+          "name": "Dwarf"
         },
         {
           "id": uuidv4(),
-          "race": "Elf"
+          "name": "Elf"
         },
         {
           "id": uuidv4(),
-          "race": "Half-elf"
+          "name": "Half-elf"
         },
         {
           "id": uuidv4(),
-          "race": "Half-orc"
+          "name": "Half-orc"
         },
         {
           "id": uuidv4(),
-          "race": "Halfling"
+          "name": "Halfling"
         },
         {
           "id": uuidv4(),
-          "race": "Human"
+          "name": "Human"
         },
         {
           "id": uuidv4(),
-          "race": "Nagaji"
+          "name": "Nagaji"
         },
         {
           "id": uuidv4(),
-          "race": "Sylph"
+          "name": "Sylph"
         },
         {
           "id": uuidv4(),
-          "race": "Tiefling"
+          "name": "Tiefling"
         }
       ]);
     });

@@ -8,27 +8,27 @@ exports.seed = function(knex, Promise) {
       return knex('alignments').insert([
         {
           "id": uuidv4(),
-          "alignment": "LG"
+          "name": "LG"
         },
         {
           "id": uuidv4(),
-          "alignment": "LN"
+          "name": "LN"
         },
         {
           "id": uuidv4(),
-          "alignment": "NG"
+          "name": "NG"
         },
         {
           "id": uuidv4(),
-          "alignment": "N"
+          "name": "N"
         },
         {
           "id": uuidv4(),
-          "alignment": "CG"
+          "name": "CG"
         },
         {
           "id": uuidv4(),
-          "alignment": "CN"
+          "name": "CN"
         }
       ]);
     });

@@ -8,51 +8,51 @@ exports.seed = function(knex, Promise) {
       return knex('classes').insert([
         {
           "id": uuidv4(),
-          "class": "Alchemist"
+          "name": "Alchemist"
         },
         {
           "id": uuidv4(),
-          "class": "Barbarian"
+          "name": "Barbarian"
         },
         {
           "id": uuidv4(),
-          "class": "Bloodrager"
+          "name": "Bloodrager"
         },
         {
           "id": uuidv4(),
-          "class": "Cleric"
+          "name": "Cleric"
         },
         {
           "id": uuidv4(),
-          "class": "Druid"
+          "name": "Druid"
         },
         {
           "id": uuidv4(),
-          "class": "Fighter"
+          "name": "Fighter"
         },
         {
           "id": uuidv4(),
-          "class": "Investigator"
+          "name": "Investigator"
         },
         {
           "id": uuidv4(),
-          "class": "Paladin"
+          "name": "Paladin"
         },
         {
           "id": uuidv4(),
-          "class": "Ranger"
+          "name": "Ranger"
         },
         {
           "id": uuidv4(),
-          "class": "Sorcerer"
+          "name": "Sorcerer"
         },
         {
           "id": uuidv4(),
-          "class": "Summoner"
+          "name": "Summoner"
         },
         {
           "id": uuidv4(),
-          "class": "Wizard"
+          "name": "Wizard"
         }
       ]);
     });
