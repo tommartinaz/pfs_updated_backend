@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
         table.uuid('classId');
         table.uuid('alignmentId');
         table.integer('level').defaultTo(1);
-        table.uuid('playerId');
+        table.string('playerId');
         table.timestamps(true, true);
     })
 };
