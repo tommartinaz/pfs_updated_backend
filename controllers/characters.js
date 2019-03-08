@@ -7,18 +7,8 @@ module.exports = {
           .then(character => res.send(character));
     },
 
-    // getDetails: (req, res) => {
-    //     knex('characters')
-    //       .select('characters.id', 'characters.name', 'alignments.alignment', 'races.race', 'classes.class', 'characters.level')
-    //       .leftJoin('races', 'characters.race_id', 'races.id')
-    //       .leftJoin('alignments', 'characters.alignment_id', 'alignments.id')
-    //       .leftJoin('classes', 'characters.class_id', 'classes.id')
-    //       .orderBy('characters.id')
-    //       .then(function (characters) {
-    //         res.send(characters);
-    //       });
-    // },
     addCharacter: (req, res) => {
+        console.log(req.body);
         knex('characters')
             .insert({
                 ...req.body,
